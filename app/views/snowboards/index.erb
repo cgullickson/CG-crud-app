@@ -1,0 +1,8 @@
+
+<% @snowboards.each do |snowboard| %>
+  <%= snowboard.name %><br />
+  <%= snowboard.brand %> <br />
+  <%= snowboard.length %> <br />
+  <a href="/snowboards/<%=snowboard.id%>/edit">Edit</a>
+  <br />
+<% end %>

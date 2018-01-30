@@ -4,20 +4,20 @@ class SnowboardsController < ApplicationController
   get "/snowboards" do
     redirect_if_not_logged_in
     @snowboards = snowboard.all
-    erb :'_snowboards/index'
+    erb :'snowboards/index'
   end
 
   get "/snowboards/new" do
     redirect_if_not_logged_in
     @error_message = params[:error]
-    erb :'_snowboards/new'
+    erb :'snowboards/new'
   end
 
   get "/snowboards/:id/edit" do
     redirect_if_not_logged_in
     @error_message = params[:error]
     @snowboard = snowboard.find(params[:id])
-    erb :'_snowboards/edit'
+    erb :'snowboards/edit'
   end
 
   post "/snowboards/:id" do
@@ -33,7 +33,7 @@ class SnowboardsController < ApplicationController
   get "/snowboards/:id" do
     redirect_if_not_logged_in
     @snowboard = snowboard.find(params[:id])
-    erb :'_snowboards/show'
+    erb :'snowboards/show'
   end
 
   post "/snowboards" do

@@ -1,0 +1,15 @@
+<h1>Edit <%= @snowboard.name %></h1>
+
+<form action="/snowboards/<%=@snowboard.id %>" method="POST">
+
+  <label> Name: </label>
+  <input type="text" name="name" value="<%=@snowboard.model %>"> </br>
+
+  <label> Brand: </label>
+  <input type="text" name="brand" value="<%=@snowboard.brand %>"> </br>
+
+  <label> Length: </label>
+  <input type="number" name="length" value="<%=@snowboard.length %>"> </br>
+
+  <input type="submit" value="Update">
+</form>
