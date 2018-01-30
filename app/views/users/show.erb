@@ -1,0 +1,6 @@
+<p> Here are your Snowboards, <%= @user.username %>
+<% @user.snowboard.each do |snowboard| %>
+  <ul>
+    <li><a href="/Snowboard/<%=Snowboard.id%>"><%= Snowboard.name %></a></li>
+  </ul>
+<% end %>
