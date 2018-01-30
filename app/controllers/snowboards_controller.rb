@@ -23,9 +23,6 @@ class SnowboardsController < ApplicationController
   post "/snowboards/:id" do
     redirect_if_not_logged_in
     @snowboard = snowboard.find(params[:id])
-    unless Snowboard.valid_params?(params)
-      redirect "/snowboards/#{@snowboard.id}/edit?error=invalid  snowboard"
-    end
     @snowboard.update(params.select{|k|k=="name" || k=="capacity"})
     redirect "/snowboards/#{@snowboard.id}"
   end
@@ -38,11 +35,7 @@ class SnowboardsController < ApplicationController
 
   post "/snowboards" do
     redirect_if_not_logged_in
-
-    unless snowboard.valid_params?(params)
-      redirect "/snowboards/new?error=invalid  snowboard"
-    end
-    snowboard.create(params)
+    Snowboard.create(params)
     redirect "/snowboards"
   end
 
